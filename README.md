@@ -1,28 +1,17 @@
-# API Server
-
-A simple Express + TypeScript API server.
-
-## Setup
-
-```bash
-npm install
-```
+# a.dhd
 
 ## Development
 
 ```bash
-PORT=3000 npm run dev
+npm install
+npm run dev
 ```
 
-## Production
+## Deploy (static export for GitHub Pages)
 
 ```bash
+npm install
 npm run build
-PORT=3000 npm start
 ```
 
-## Environment Variables
-
-- `PORT` — port to listen on (default: 3000)
-- `DATABASE_URL` — PostgreSQL connection string (required for DB features)
-- `NODE_ENV` — set to `production` for production mode
+The `out/` folder is your static site — upload anywhere.
