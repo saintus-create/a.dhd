@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: "/a.dhd",
+  assetPrefix: "/a.dhd/",
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -14,3 +16,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
