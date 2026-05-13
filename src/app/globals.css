@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════
+   USWDS Design Token System — Tailwind v4 @theme
+   Architecture mirrors Shadcn / ReUI / HeroUI:
+     1. Primitive layer  — USWDS color grades (bg-uswds-gray-90, etc.)
+     2. Semantic layer   — bg-background, text-foreground, bg-primary …
+     3. Status layer     — bg-success, bg-destructive, bg-warning, bg-info
+   Components reference ONLY semantic names, never primitives.
+══════════════════════════════════════════════════════ */
+@theme {
+
+  /* ── Primitive: Gray ─────────────────────────────── */
+  --color-uswds-gray-1:  #fcfcfc;
+  --color-uswds-gray-2:  #f9f9f9;
+  --color-uswds-gray-3:  #f6f6f6;
+  --color-uswds-gray-4:  #f3f3f3;
+  --color-uswds-gray-5:  #f0f0f0;
+  --color-uswds-gray-10: #e6e6e6;
+  --color-uswds-gray-20: #c9c9c9;
+  --color-uswds-gray-30: #adadad;
+  --color-uswds-gray-40: #919191;
+  --color-uswds-gray-50: #757575;
+  --color-uswds-gray-60: #5c5c5c;
+  --color-uswds-gray-70: #454545;
+  --color-uswds-gray-80: #2e2e2e;
+  --color-uswds-gray-90: #1b1b1b;
+
+  /* ── Primitive: Blue ─────────────────────────────── */
+  --color-uswds-blue-5:  #eff6fb;
+  --color-uswds-blue-10: #d9e8f6;
+  --color-uswds-blue-20: #aacdec;
+  --color-uswds-blue-30: #73b3d8;
+  --color-uswds-blue-40: #4f97d1;
+  --color-uswds-blue-50: #2378c3;
+  --color-uswds-blue-60: #1a62a3;
+  --color-uswds-blue-70: #164f85;
+  --color-uswds-blue-80: #0f3d6b;
+  --color-uswds-blue-90: #0b2d53;
+
+  /* ── Primitive: Blue Vivid ───────────────────────── */
+  --color-uswds-blue-5v:  #e8f5ff;
+  --color-uswds-blue-10v: #c5e4ff;
+  --color-uswds-blue-20v: #97d4ff;
+  --color-uswds-blue-30v: #6bb6ff;
+  --color-uswds-blue-40v: #4499ff;
+  --color-uswds-blue-50v: #2491ff;
+  --color-uswds-blue-60v: #0050d8;
+  --color-uswds-blue-70v: #0040b2;
+  --color-uswds-blue-80v: #002d8c;
+  --color-uswds-blue-90v: #001e66;
+
+  /* ── Primitive: Red Vivid ────────────────────────── */
+  --color-uswds-red-40v: #e52207;
+  --color-uswds-red-50v: #c31f0a;
+  --color-uswds-red-60v: #981b1e;
+
+  /* ── Primitive: Green / Mint Vivid ───────────────── */
+  --color-uswds-green-40v: #4d8055;
+  --color-uswds-green-50v: #168521;
+  --color-uswds-green-60v: #216e1f;
+  --color-uswds-mint-40v:  #34a37e;
+  --color-uswds-mint-50v:  #00a398;
+
+  /* ── Primitive: Gold (warning) ───────────────────── */
+  --color-uswds-gold-10v: #ffe396;
+  --color-uswds-gold-20v: #ffbe2e;
+  --color-uswds-gold-30v: #e5a000;
+
+  /* ── Primitive: Cyan (info) ──────────────────────── */
+  --color-uswds-cyan-10v: #a8f2ff;
+  --color-uswds-cyan-20v: #52daf2;
+  --color-uswds-cyan-30v: #00bde3;
+
+  /* ══════════════════════════════════════════════════
+     Semantic layer — Shadcn / ReUI / HeroUI naming.
+     Every component uses ONLY these tokens.
+  ══════════════════════════════════════════════════ */
+
+  /* Surface */
+  --color-background:         #ffffff;
+  --color-foreground:         #1b1b1b;   /* uswds gray-90 */
+
+  /* Muted / subdued */
+  --color-muted:              #f0f0f0;   /* uswds gray-5  */
+  --color-muted-foreground:   #5c5c5c;   /* uswds gray-60 */
+
+  /* Borders & input chrome */
+  --color-border:             #c9c9c9;   /* uswds gray-20 */
+  --color-input:              #c9c9c9;   /* uswds gray-20 */
+  --color-ring:               #1b1b1b;   /* uswds gray-90 */
+
+  /* Primary action — monochrome brand; change to
+     --color-uswds-blue-60v (#0050d8) for USWDS blue */
+  --color-primary:            #1b1b1b;   /* uswds gray-90 */
+  --color-primary-foreground: #ffffff;
+  --color-primary-hover:      #2e2e2e;   /* uswds gray-80 */
+
+  /* Secondary / ghost */
+  --color-secondary:          #f0f0f0;   /* uswds gray-5  */
+  --color-secondary-foreground: #2e2e2e; /* uswds gray-80 */
+
+  /* Accent (USWDS blue tint) */
+  --color-accent:             #eff6fb;   /* uswds blue-5  */
+  --color-accent-foreground:  #164f85;   /* uswds blue-70 */
+
+  /* Card & popover surfaces */
+  --color-card:               #ffffff;
+  --color-card-foreground:    #1b1b1b;   /* uswds gray-90 */
+  --color-popover:            #ffffff;
+  --color-popover-foreground: #1b1b1b;   /* uswds gray-90 */
+
+  /* ── Status tokens (USWDS semantic colors) ────── */
+  --color-destructive:             #e52207;  /* uswds red-40v   */
+  --color-destructive-foreground:  #ffffff;
+  --color-success:                 #168521;  /* uswds green-50v */
+  --color-success-foreground:      #ffffff;
+  --color-warning:                 #ffbe2e;  /* uswds gold-20v  */
+  --color-warning-foreground:      #1b1b1b;  /* uswds gray-90   */
+  --color-info:                    #0050d8;  /* uswds blue-60v  */
+  --color-info-foreground:         #ffffff;
+
+  /* ══════════════════════════════════════════════════
+     USWDS Spacing Scale — 8 px base unit
+     Generates p-uswds-3, gap-uswds-5, mt-uswds-6 …
+  ══════════════════════════════════════════════════ */
+  --spacing-uswds-05:  0.25rem;   /*  4 px */
+  --spacing-uswds-1:   0.5rem;    /*  8 px */
+  --spacing-uswds-105: 0.75rem;   /* 12 px */
+  --spacing-uswds-2:   1rem;      /* 16 px */
+  --spacing-uswds-205: 1.25rem;   /* 20 px */
+  --spacing-uswds-3:   1.5rem;    /* 24 px */
+  --spacing-uswds-4:   2rem;      /* 32 px */
+  --spacing-uswds-5:   2.5rem;    /* 40 px */
+  --spacing-uswds-6:   3rem;      /* 48 px */
+  --spacing-uswds-7:   3.5rem;    /* 56 px */
+  --spacing-uswds-8:   4rem;      /* 64 px */
+  --spacing-uswds-9:   4.5rem;    /* 72 px */
+  --spacing-uswds-10:  5rem;      /* 80 px */
+  --spacing-uswds-15:  7.5rem;    /* 120px */
+
+  /* ══════════════════════════════════════════════════
+     USWDS Type Scale — generates text-uswds-sm etc.
+  ══════════════════════════════════════════════════ */
+  --font-size-uswds-3xs: 0.75rem;    /* 12 px */
+  --font-size-uswds-2xs: 0.8125rem;  /* 13 px */
+  --font-size-uswds-xs:  0.875rem;   /* 14 px */
+  --font-size-uswds-sm:  0.9375rem;  /* 15 px — body */
+  --font-size-uswds-md:  1rem;       /* 16 px */
+  --font-size-uswds-lg:  1.0625rem;  /* 17 px */
+  --font-size-uswds-xl:  1.3125rem;  /* 21 px */
+  --font-size-uswds-2xl: 1.5rem;     /* 24 px */
+  --font-size-uswds-3xl: 1.75rem;    /* 28 px */
+  --font-size-uswds-4xl: 2.125rem;   /* 34 px */
+  --font-size-uswds-5xl: 2.625rem;   /* 42 px */
+  --font-size-uswds-6xl: 3.125rem;   /* 50 px */
+  --font-size-uswds-7xl: 3.75rem;    /* 60 px */
+  --font-size-uswds-8xl: 4.5rem;     /* 72 px */
+  --font-size-uswds-9xl: 5.5rem;     /* 88 px */
+
+  /* ── USWDS Line Heights ─────────────────────────── */
+  --line-height-uswds-1: 1;      /* tight display   */
+  --line-height-uswds-2: 1.15;   /* heading         */
+  --line-height-uswds-3: 1.35;   /* display heading */
+  --line-height-uswds-4: 1.5;    /* body (default)  */
+  --line-height-uswds-5: 1.62;   /* prose           */
+  --line-height-uswds-6: 1.75;   /* loose           */
+
+  /* ── Font Families ──────────────────────────────── */
+  --font-family-public-sans: var(--font-public-sans), "Public Sans", system-ui, sans-serif;
+  --font-family-mono:        "Roboto Mono", ui-monospace, monospace;
+}
+
+/* ══════════════════════════════════════════════════
+   Base reset — all base styles use semantic tokens
+══════════════════════════════════════════════════ */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-family-public-sans);
+    /* USWDS body = "sm" typescale = 15 px, lh-4 = 1.5 */
+    font-size: var(--font-size-uswds-sm);
+    line-height: var(--line-height-uswds-4);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
