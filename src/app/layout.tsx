@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import "./globals.css";
 
-/* Public Sans is the USWDS primary typeface.
-   Weights: 300 light, 400 regular, 500 medium, 600 semi, 700 bold */
 const publicSans = Public_Sans({
   subsets: ["latin"],
   variable: "--font-public-sans",
@@ -12,16 +10,12 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tailark — Enterprise Invoicing & Collaboration Platform",
+  title: "ADHD Safety Hub — FDA FAERS Data Analysis",
   description:
-    "Our Enterprise Invoicing solution simplifies billing processes, enhances financial oversight, and ensures compliance with ease.",
+    "Independent analysis of FDA FAERS adverse event data for ADHD stimulant medications, including Vyvanse, Adderall, and related drugs.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={publicSans.variable}>
       <body className="antialiased">{children}</body>

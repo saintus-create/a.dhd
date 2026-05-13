@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "fumadocs-mdx/next";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -6,14 +7,8 @@ const nextConfig: NextConfig = {
   assetPrefix: "/a.dhd/",
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-      },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "avatars.githubusercontent.com" }],
   },
 };
 
-export default nextConfig;
-
+export default createMDX()(nextConfig);

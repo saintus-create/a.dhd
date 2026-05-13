@@ -1,5 +1,17 @@
-node_modules/
+# Next.js
 .next/
 out/
-.env
-.env.local
+
+# Fumadocs — generated at build time, never commit
+.source/
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Replit
+.cache/
+.local/
