@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════
-   USWDS Design Token System — Tailwind v4 @theme
-   Architecture mirrors Shadcn / ReUI / HeroUI:
-     1. Primitive layer  — USWDS color grades (bg-uswds-gray-90, etc.)
-     2. Semantic layer   — bg-background, text-foreground, bg-primary …
-     3. Status layer     — bg-success, bg-destructive, bg-warning, bg-info
-   Components reference ONLY semantic names, never primitives.
+   Design Token System — Tailwind v4 @theme
+   Primitive layer: USWDS color grades
+   Semantic layer:  HeroUI oklch values mapped to Tailwind
+   Components reference ONLY semantic names.
 ══════════════════════════════════════════════════════ */
 @theme {
 
@@ -73,98 +71,97 @@
   --color-uswds-cyan-30v: #00bde3;
 
   /* ══════════════════════════════════════════════════
-     Semantic layer — Shadcn / ReUI / HeroUI naming.
-     Every component uses ONLY these tokens.
+     Semantic layer — HeroUI oklch values.
+     Tailwind classes bg-background, text-foreground, etc.
+     all resolve through these --color-* tokens.
   ══════════════════════════════════════════════════ */
 
   /* Surface */
-  --color-background:         #ffffff;
-  --color-foreground:         #1b1b1b;   /* uswds gray-90 */
+  --color-background:           oklch(97.02% 0.0015 253.83);
+  --color-foreground:           oklch(21.03% 0.0015 253.83);
 
   /* Muted / subdued */
-  --color-muted:              #f0f0f0;   /* uswds gray-5  */
-  --color-muted-foreground:   #5c5c5c;   /* uswds gray-60 */
+  --color-muted:                oklch(94.00% 0.0015 253.83);
+  --color-muted-foreground:     oklch(55.17% 0.0030 253.83);
 
   /* Borders & input chrome */
-  --color-border:             #c9c9c9;   /* uswds gray-20 */
-  --color-input:              #c9c9c9;   /* uswds gray-20 */
-  --color-ring:               #1b1b1b;   /* uswds gray-90 */
+  --color-border:               oklch(90.00% 0.0015 253.83);
+  --color-input:                oklch(90.00% 0.0015 253.83);
+  --color-ring:                 oklch(62.04% 0.1950 253.83);
 
-  /* Primary action — monochrome brand; change to
-     --color-uswds-blue-60v (#0050d8) for USWDS blue */
-  --color-primary:            #1b1b1b;   /* uswds gray-90 */
-  --color-primary-foreground: #ffffff;
-  --color-primary-hover:      #2e2e2e;   /* uswds gray-80 */
+  /* Primary action */
+  --color-primary:              oklch(21.03% 0.0059 253.83);
+  --color-primary-foreground:   oklch(99.11% 0 0);
+  --color-primary-hover:        oklch(27.40% 0.0015 253.83);
 
   /* Secondary / ghost */
-  --color-secondary:          #f0f0f0;   /* uswds gray-5  */
-  --color-secondary-foreground: #2e2e2e; /* uswds gray-80 */
+  --color-secondary:            oklch(94.00% 0.0015 253.83);
+  --color-secondary-foreground: oklch(21.03% 0.0059 253.83);
 
-  /* Accent (USWDS blue tint) */
-  --color-accent:             #eff6fb;   /* uswds blue-5  */
-  --color-accent-foreground:  #164f85;   /* uswds blue-70 */
+  /* Accent */
+  --color-accent:               oklch(62.04% 0.1950 253.83);
+  --color-accent-foreground:    oklch(99.11% 0 0);
 
   /* Card & popover surfaces */
-  --color-card:               #ffffff;
-  --color-card-foreground:    #1b1b1b;   /* uswds gray-90 */
-  --color-popover:            #ffffff;
-  --color-popover-foreground: #1b1b1b;   /* uswds gray-90 */
+  --color-card:                 oklch(100.00% 0.0008 253.83);
+  --color-card-foreground:      oklch(21.03% 0.0015 253.83);
+  --color-popover:              oklch(100.00% 0.0008 253.83);
+  --color-popover-foreground:   oklch(21.03% 0.0015 253.83);
 
-  /* ── Status tokens (USWDS semantic colors) ────── */
-  --color-destructive:             #e52207;  /* uswds red-40v   */
-  --color-destructive-foreground:  #ffffff;
-  --color-success:                 #168521;  /* uswds green-50v */
-  --color-success-foreground:      #ffffff;
-  --color-warning:                 #ffbe2e;  /* uswds gold-20v  */
-  --color-warning-foreground:      #1b1b1b;  /* uswds gray-90   */
-  --color-info:                    #0050d8;  /* uswds blue-60v  */
-  --color-info-foreground:         #ffffff;
+  /* Status */
+  --color-destructive:             oklch(65.32% 0.2335 25.74);
+  --color-destructive-foreground:  oklch(99.11% 0 0);
+  --color-success:                 oklch(73.29% 0.1941 150.81);
+  --color-success-foreground:      oklch(21.03% 0.0059 150.81);
+  --color-warning:                 oklch(78.19% 0.1590 72.33);
+  --color-warning-foreground:      oklch(21.03% 0.0059 72.33);
+  --color-info:                    oklch(62.04% 0.1950 253.83);
+  --color-info-foreground:         oklch(99.11% 0 0);
 
   /* ══════════════════════════════════════════════════
      USWDS Spacing Scale — 8 px base unit
-     Generates p-uswds-3, gap-uswds-5, mt-uswds-6 …
   ══════════════════════════════════════════════════ */
-  --spacing-uswds-05:  0.25rem;   /*  4 px */
-  --spacing-uswds-1:   0.5rem;    /*  8 px */
-  --spacing-uswds-105: 0.75rem;   /* 12 px */
-  --spacing-uswds-2:   1rem;      /* 16 px */
-  --spacing-uswds-205: 1.25rem;   /* 20 px */
-  --spacing-uswds-3:   1.5rem;    /* 24 px */
-  --spacing-uswds-4:   2rem;      /* 32 px */
-  --spacing-uswds-5:   2.5rem;    /* 40 px */
-  --spacing-uswds-6:   3rem;      /* 48 px */
-  --spacing-uswds-7:   3.5rem;    /* 56 px */
-  --spacing-uswds-8:   4rem;      /* 64 px */
-  --spacing-uswds-9:   4.5rem;    /* 72 px */
-  --spacing-uswds-10:  5rem;      /* 80 px */
-  --spacing-uswds-15:  7.5rem;    /* 120px */
+  --spacing-uswds-05:  0.25rem;
+  --spacing-uswds-1:   0.5rem;
+  --spacing-uswds-105: 0.75rem;
+  --spacing-uswds-2:   1rem;
+  --spacing-uswds-205: 1.25rem;
+  --spacing-uswds-3:   1.5rem;
+  --spacing-uswds-4:   2rem;
+  --spacing-uswds-5:   2.5rem;
+  --spacing-uswds-6:   3rem;
+  --spacing-uswds-7:   3.5rem;
+  --spacing-uswds-8:   4rem;
+  --spacing-uswds-9:   4.5rem;
+  --spacing-uswds-10:  5rem;
+  --spacing-uswds-15:  7.5rem;
 
   /* ══════════════════════════════════════════════════
-     USWDS Type Scale — generates text-uswds-sm etc.
+     USWDS Type Scale
   ══════════════════════════════════════════════════ */
-  --font-size-uswds-3xs: 0.75rem;    /* 12 px */
-  --font-size-uswds-2xs: 0.8125rem;  /* 13 px */
-  --font-size-uswds-xs:  0.875rem;   /* 14 px */
-  --font-size-uswds-sm:  0.9375rem;  /* 15 px — body */
-  --font-size-uswds-md:  1rem;       /* 16 px */
-  --font-size-uswds-lg:  1.0625rem;  /* 17 px */
-  --font-size-uswds-xl:  1.3125rem;  /* 21 px */
-  --font-size-uswds-2xl: 1.5rem;     /* 24 px */
-  --font-size-uswds-3xl: 1.75rem;    /* 28 px */
-  --font-size-uswds-4xl: 2.125rem;   /* 34 px */
-  --font-size-uswds-5xl: 2.625rem;   /* 42 px */
-  --font-size-uswds-6xl: 3.125rem;   /* 50 px */
-  --font-size-uswds-7xl: 3.75rem;    /* 60 px */
-  --font-size-uswds-8xl: 4.5rem;     /* 72 px */
-  --font-size-uswds-9xl: 5.5rem;     /* 88 px */
+  --font-size-uswds-3xs: 0.75rem;
+  --font-size-uswds-2xs: 0.8125rem;
+  --font-size-uswds-xs:  0.875rem;
+  --font-size-uswds-sm:  0.9375rem;
+  --font-size-uswds-md:  1rem;
+  --font-size-uswds-lg:  1.0625rem;
+  --font-size-uswds-xl:  1.3125rem;
+  --font-size-uswds-2xl: 1.5rem;
+  --font-size-uswds-3xl: 1.75rem;
+  --font-size-uswds-4xl: 2.125rem;
+  --font-size-uswds-5xl: 2.625rem;
+  --font-size-uswds-6xl: 3.125rem;
+  --font-size-uswds-7xl: 3.75rem;
+  --font-size-uswds-8xl: 4.5rem;
+  --font-size-uswds-9xl: 5.5rem;
 
   /* ── USWDS Line Heights ─────────────────────────── */
-  --line-height-uswds-1: 1;      /* tight display   */
-  --line-height-uswds-2: 1.15;   /* heading         */
-  --line-height-uswds-3: 1.35;   /* display heading */
-  --line-height-uswds-4: 1.5;    /* body (default)  */
-  --line-height-uswds-5: 1.62;   /* prose           */
-  --line-height-uswds-6: 1.75;   /* loose           */
+  --line-height-uswds-1: 1;
+  --line-height-uswds-2: 1.15;
+  --line-height-uswds-3: 1.35;
+  --line-height-uswds-4: 1.5;
+  --line-height-uswds-5: 1.62;
+  --line-height-uswds-6: 1.75;
 
   /* ── Font Families ──────────────────────────────── */
   --font-family-public-sans: var(--font-public-sans), "Public Sans", system-ui, sans-serif;
@@ -172,7 +169,7 @@
 }
 
 /* ══════════════════════════════════════════════════
-   Base reset — all base styles use semantic tokens
+   Base reset
 ══════════════════════════════════════════════════ */
 @layer base {
   * {
@@ -186,7 +183,6 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-family-public-sans);
-    /* USWDS body = "sm" typescale = 15 px, lh-4 = 1.5 */
     font-size: var(--font-size-uswds-sm);
     line-height: var(--line-height-uswds-4);
     -webkit-font-smoothing: antialiased;
