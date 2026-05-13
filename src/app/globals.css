@@ -1,191 +1,198 @@
 @import "tailwindcss";
 
-/* ══════════════════════════════════════════════════════
-   Design Token System — Tailwind v4 @theme
-   Primitive layer: USWDS color grades
-   Semantic layer:  HeroUI oklch values mapped to Tailwind
-   Components reference ONLY semantic names.
-══════════════════════════════════════════════════════ */
-@theme {
+@custom-variant dark (&:is(.dark *));
 
-  /* ── Primitive: Gray ─────────────────────────────── */
-  --color-uswds-gray-1:  #fcfcfc;
-  --color-uswds-gray-2:  #f9f9f9;
-  --color-uswds-gray-3:  #f6f6f6;
-  --color-uswds-gray-4:  #f3f3f3;
-  --color-uswds-gray-5:  #f0f0f0;
-  --color-uswds-gray-10: #e6e6e6;
-  --color-uswds-gray-20: #c9c9c9;
-  --color-uswds-gray-30: #adadad;
-  --color-uswds-gray-40: #919191;
-  --color-uswds-gray-50: #757575;
-  --color-uswds-gray-60: #5c5c5c;
-  --color-uswds-gray-70: #454545;
-  --color-uswds-gray-80: #2e2e2e;
-  --color-uswds-gray-90: #1b1b1b;
+/*
+ * @theme inline — Tailwind resolves bg-background, text-foreground, etc.
+ * through hsl(var(--x)) so that :root overrides actually take effect.
+ */
+@theme inline {
+  --color-background:         hsl(var(--background));
+  --color-foreground:         hsl(var(--foreground));
+  --color-border:             hsl(var(--border));
+  --color-input:              hsl(var(--input));
+  --color-ring:               hsl(var(--ring));
 
-  /* ── Primitive: Blue ─────────────────────────────── */
-  --color-uswds-blue-5:  #eff6fb;
-  --color-uswds-blue-10: #d9e8f6;
-  --color-uswds-blue-20: #aacdec;
-  --color-uswds-blue-30: #73b3d8;
-  --color-uswds-blue-40: #4f97d1;
-  --color-uswds-blue-50: #2378c3;
-  --color-uswds-blue-60: #1a62a3;
-  --color-uswds-blue-70: #164f85;
-  --color-uswds-blue-80: #0f3d6b;
-  --color-uswds-blue-90: #0b2d53;
+  --color-card:               hsl(var(--card));
+  --color-card-foreground:    hsl(var(--card-foreground));
 
-  /* ── Primitive: Blue Vivid ───────────────────────── */
-  --color-uswds-blue-5v:  #e8f5ff;
-  --color-uswds-blue-10v: #c5e4ff;
-  --color-uswds-blue-20v: #97d4ff;
-  --color-uswds-blue-30v: #6bb6ff;
-  --color-uswds-blue-40v: #4499ff;
-  --color-uswds-blue-50v: #2491ff;
-  --color-uswds-blue-60v: #0050d8;
-  --color-uswds-blue-70v: #0040b2;
-  --color-uswds-blue-80v: #002d8c;
-  --color-uswds-blue-90v: #001e66;
+  --color-popover:            hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
 
-  /* ── Primitive: Red Vivid ────────────────────────── */
-  --color-uswds-red-40v: #e52207;
-  --color-uswds-red-50v: #c31f0a;
-  --color-uswds-red-60v: #981b1e;
+  --color-primary:            hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-hover:      hsl(var(--primary-hover));
 
-  /* ── Primitive: Green / Mint Vivid ───────────────── */
-  --color-uswds-green-40v: #4d8055;
-  --color-uswds-green-50v: #168521;
-  --color-uswds-green-60v: #216e1f;
-  --color-uswds-mint-40v:  #34a37e;
-  --color-uswds-mint-50v:  #00a398;
+  --color-secondary:          hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
 
-  /* ── Primitive: Gold (warning) ───────────────────── */
-  --color-uswds-gold-10v: #ffe396;
-  --color-uswds-gold-20v: #ffbe2e;
-  --color-uswds-gold-30v: #e5a000;
+  --color-muted:              hsl(var(--muted));
+  --color-muted-foreground:   hsl(var(--muted-foreground));
 
-  /* ── Primitive: Cyan (info) ──────────────────────── */
-  --color-uswds-cyan-10v: #a8f2ff;
-  --color-uswds-cyan-20v: #52daf2;
-  --color-uswds-cyan-30v: #00bde3;
+  --color-accent:             hsl(var(--accent));
+  --color-accent-foreground:  hsl(var(--accent-foreground));
 
-  /* ══════════════════════════════════════════════════
-     Semantic layer — HeroUI oklch values.
-     Tailwind classes bg-background, text-foreground, etc.
-     all resolve through these --color-* tokens.
-  ══════════════════════════════════════════════════ */
+  --color-destructive:        hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 
-  /* Surface */
-  --color-background:           oklch(97.02% 0.0015 253.83);
-  --color-foreground:           oklch(21.03% 0.0015 253.83);
+  --color-success:            hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
 
-  /* Muted / subdued */
-  --color-muted:                oklch(94.00% 0.0015 253.83);
-  --color-muted-foreground:     oklch(55.17% 0.0030 253.83);
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
 
-  /* Borders & input chrome */
-  --color-border:               oklch(90.00% 0.0015 253.83);
-  --color-input:                oklch(90.00% 0.0015 253.83);
-  --color-ring:                 oklch(62.04% 0.1950 253.83);
-
-  /* Primary action */
-  --color-primary:              oklch(21.03% 0.0059 253.83);
-  --color-primary-foreground:   oklch(99.11% 0 0);
-  --color-primary-hover:        oklch(27.40% 0.0015 253.83);
-
-  /* Secondary / ghost */
-  --color-secondary:            oklch(94.00% 0.0015 253.83);
-  --color-secondary-foreground: oklch(21.03% 0.0059 253.83);
-
-  /* Accent */
-  --color-accent:               oklch(62.04% 0.1950 253.83);
-  --color-accent-foreground:    oklch(99.11% 0 0);
-
-  /* Card & popover surfaces */
-  --color-card:                 oklch(100.00% 0.0008 253.83);
-  --color-card-foreground:      oklch(21.03% 0.0015 253.83);
-  --color-popover:              oklch(100.00% 0.0008 253.83);
-  --color-popover-foreground:   oklch(21.03% 0.0015 253.83);
-
-  /* Status */
-  --color-destructive:             oklch(65.32% 0.2335 25.74);
-  --color-destructive-foreground:  oklch(99.11% 0 0);
-  --color-success:                 oklch(73.29% 0.1941 150.81);
-  --color-success-foreground:      oklch(21.03% 0.0059 150.81);
-  --color-warning:                 oklch(78.19% 0.1590 72.33);
-  --color-warning-foreground:      oklch(21.03% 0.0059 72.33);
-  --color-info:                    oklch(62.04% 0.1950 253.83);
-  --color-info-foreground:         oklch(99.11% 0 0);
-
-  /* ══════════════════════════════════════════════════
-     USWDS Spacing Scale — 8 px base unit
-  ══════════════════════════════════════════════════ */
-  --spacing-uswds-05:  0.25rem;
-  --spacing-uswds-1:   0.5rem;
-  --spacing-uswds-105: 0.75rem;
-  --spacing-uswds-2:   1rem;
-  --spacing-uswds-205: 1.25rem;
-  --spacing-uswds-3:   1.5rem;
-  --spacing-uswds-4:   2rem;
-  --spacing-uswds-5:   2.5rem;
-  --spacing-uswds-6:   3rem;
-  --spacing-uswds-7:   3.5rem;
-  --spacing-uswds-8:   4rem;
-  --spacing-uswds-9:   4.5rem;
-  --spacing-uswds-10:  5rem;
-  --spacing-uswds-15:  7.5rem;
-
-  /* ══════════════════════════════════════════════════
-     USWDS Type Scale
-  ══════════════════════════════════════════════════ */
-  --font-size-uswds-3xs: 0.75rem;
-  --font-size-uswds-2xs: 0.8125rem;
-  --font-size-uswds-xs:  0.875rem;
-  --font-size-uswds-sm:  0.9375rem;
-  --font-size-uswds-md:  1rem;
-  --font-size-uswds-lg:  1.0625rem;
-  --font-size-uswds-xl:  1.3125rem;
-  --font-size-uswds-2xl: 1.5rem;
-  --font-size-uswds-3xl: 1.75rem;
-  --font-size-uswds-4xl: 2.125rem;
-  --font-size-uswds-5xl: 2.625rem;
-  --font-size-uswds-6xl: 3.125rem;
-  --font-size-uswds-7xl: 3.75rem;
-  --font-size-uswds-8xl: 4.5rem;
-  --font-size-uswds-9xl: 5.5rem;
-
-  /* ── USWDS Line Heights ─────────────────────────── */
-  --line-height-uswds-1: 1;
-  --line-height-uswds-2: 1.15;
-  --line-height-uswds-3: 1.35;
-  --line-height-uswds-4: 1.5;
-  --line-height-uswds-5: 1.62;
-  --line-height-uswds-6: 1.75;
-
-  /* ── Font Families ──────────────────────────────── */
-  --font-family-public-sans: var(--font-public-sans), "Public Sans", system-ui, sans-serif;
-  --font-family-mono:        "Roboto Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ══════════════════════════════════════════════════
-   Base reset
-══════════════════════════════════════════════════ */
+/* ─── Design Tokens ─────────────────────────────────────────────────────────
+ * Dark monochrome palette — sourced from USWDS-Astroship.
+ * Every Tailwind utility class (bg-background, text-muted-foreground, etc.)
+ * resolves through these HSL values.
+ */
+:root {
+  /* Surface */
+  --background: 0 0% 7%;            /* #121212 near-black */
+  --foreground: 0 0% 94%;           /* #f0f0f0 */
+
+  /* Borders & inputs */
+  --border: 0 0% 18%;               /* #2e2e2e */
+  --input:  0 0% 18%;
+  --ring:   205 100% 32%;           /* #005ea2 USWDS blue-60v */
+
+  /* Cards */
+  --card:             0 0% 11%;     /* #1c1c1c */
+  --card-foreground:  0 0% 94%;
+
+  /* Popover */
+  --popover:             0 0% 13%;
+  --popover-foreground:  0 0% 94%;
+
+  /* Primary action — USWDS blue */
+  --primary:            205 100% 32%;   /* #005ea2 */
+  --primary-foreground: 0 0% 100%;
+  --primary-hover:      205 100% 25%;   /* #003d7a deeper hover */
+
+  /* Secondary / ghost */
+  --secondary:            0 0% 15%;    /* #262626 */
+  --secondary-foreground: 0 0% 67%;    /* #a9aeb1 */
+
+  /* Muted */
+  --muted:            0 0% 11%;
+  --muted-foreground: 0 0% 44%;        /* #71767a */
+
+  /* Accent */
+  --accent:            0 0% 13%;
+  --accent-foreground: 0 0% 67%;
+
+  /* Status */
+  --destructive:            349 78% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --success:                128 62% 35%;   /* #168521 USWDS green */
+  --success-foreground:     0 0% 100%;
+
+  /* Radius */
+  --radius: 4px;
+
+  /* Typography */
+  --app-font-sans: var(--font-public-sans), "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --app-font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  /* Elevation */
+  --elevate-1: rgba(0,0,0,.03);
+  --elevate-2: rgba(0,0,0,.08);
+}
+
+/* ─── Base Layer ─────────────────────────────────────────────────────────────*/
 @layer base {
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border-color: var(--color-border);
+    border-color: hsl(var(--border));
   }
-
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-family-public-sans);
-    font-size: var(--font-size-uswds-sm);
-    line-height: var(--line-height-uswds-4);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--app-font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--foreground));
+    font-weight: 700;
+    line-height: 1.15;
+  }
+}
+
+/* ─── Text opacity helpers ───────────────────────────────────────────────────*/
+@layer utilities {
+  *:focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  .t-body  { color: rgba(255,255,255,0.52); }
+  .t-sub   { color: rgba(255,255,255,0.34); }
+  .t-muted { color: rgba(255,255,255,0.20); }
+  .t-ghost { color: rgba(255,255,255,0.12); }
+}
+
+/* ─── Film-grain overlay ─────────────────────────────────────────────────────*/
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ─── Surface depth system ───────────────────────────────────────────────────*/
+.hero-depth {
+  position: relative;
+  background:
+    radial-gradient(ellipse 110% 70% at 15% -20%, rgba(0,94,162,0.15) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 35% at 85% 110%, rgba(0,94,162,0.07) 0%, transparent 55%),
+    linear-gradient(180deg, #060606 0%, #0b0b0b 60%, #0f0f12 100%);
+}
+.hero-depth::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,94,162,0.55) 20%,
+    rgba(115,179,231,0.85) 50%,
+    rgba(0,94,162,0.55) 80%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.stat-card-depth {
+  background: linear-gradient(158deg, #242424 0%, #1d1d1d 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    0 6px 36px rgba(0,0,0,0.60);
+}
+
+.card-row-depth {
+  background: linear-gradient(135deg, #2a2a2a 0%, #252525 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 2px 12px rgba(0,0,0,0.55);
+}
+
+.section-alt-depth {
+  background: #0d0d0d;
 }
