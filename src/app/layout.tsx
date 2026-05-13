@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
+import { RootProvider } from "fumadocs-ui/provider";
 import "./globals.css";
 
 const publicSans = Public_Sans({
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={publicSans.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <RootProvider>{children}</RootProvider>
+      </body>
     </html>
   );
 }
